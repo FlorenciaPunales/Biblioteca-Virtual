@@ -123,18 +123,20 @@ section {
 }
 .header .header-2 .navbar {
   text-align: center;
+  display: block;
 }
 .header .header-2 .navbar a {
   color: #fff;
   display: inline-block;
   padding: 1.2rem;
   font-size: 1.7rem;
+  text-decoration: none;
 }
 .header .header-2 .navbar a:hover {
   background: var(--dark-color);
 }
 .header .header-2.active {
-  position: fixed;
+
   top: 0;
   left: 0;
   right: 0;
@@ -676,9 +678,19 @@ section {
 .loader-container.active {
   display: none;
 }
-
+/* flor*/
 loader-container img {
   height: 10rem;
+}
+.seccion {
+  margin-top: 5rem;
+  border: double;
+  border-color: #81559b;
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.icon {
+  width: 3.2rem;
 }
 .mobile {
   background-color: #81559b;
@@ -689,6 +701,14 @@ loader-container img {
   
     
    
+  
+}
+.container-fluid {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.imagenlogin {
+  width: 4rem;
   
 }
 
