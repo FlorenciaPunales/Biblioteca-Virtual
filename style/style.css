@@ -151,6 +151,7 @@ section {
   right: 0;
   z-index: 1000;
   display: none;
+ 
 }
 .bottom-navbar a {
   font-size: 2.5rem;
@@ -690,7 +691,7 @@ loader-container img {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .icon {
-  width: 3.2rem;
+  width: 3.5rem;
 }
 .mobile {
   background-color: #81559b;
@@ -745,7 +746,9 @@ main {
   }
 
   .bottom-navbar {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    
   }
 
   #search-btn {
