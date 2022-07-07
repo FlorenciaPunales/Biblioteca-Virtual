@@ -1,12 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca</title>
+  <link rel="icon" href="images/icon.png">
+  <!-- font awesome cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  <!-- custom css file link -->
+  <link rel="stylesheet" href="/style/style.css">
 </head>
+
 <body>
-    
+  <header class="header">
+    <div class="header-1">
+      <a href="#" class="logo"><i class="fas fa-book"></i> Save the King </a>
+      <form action="" class="search-form">
+        <input type="serch" name="" placeholder="search here..." id="serch-box">
+        <label for="search-box" class="fas fa-search"></label>
+      </form>
+      <div class="icons">
+        <div id="search-btn" class="fas fa-search"></div>
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-cart"></a>
+        <div id="login-btn" class="fas fa-user"></div>
+      </div>
+    </div>
+
+    <div class="header-2">
+      <nav class="navbar">
+        <a href="#home">Inicio</a>
+        <a href="#featured">Ofertas</a>
+        <a href="#arrivals">Nuevos Ingresos</a>
+        <a href="#reviews">Comentarios</a>
+        <a href="#blogs">Notas</a>
+
+      </nav>
+    </div>
+    <div>
+      <nav class="navbar navbar-expand-lg mobile">
+        <div class="container-fluid">
+          <div class="log">
+            <a class="" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+              aria-controls="offcanvasExample">
+              <img src="/images/user.png" alt="" class="icon">
+            </a>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+              aria-labelledby="offcanvasExampleLabel">
+              <div class="offcanvas-header flex-row justify-content-between w-100">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <div v-show="!logued" class="loginInput  d-flex flex-column gap-3">
+                  <input id="email" v-show="!logued" type="text" placeholder="email">
+                  <input id="password" v-show="!logued" type="password" placeholder="password">
+                </div>
+                <div class="loginButtons d-flex flex-column gap-3 mt-5">
+                  <div v-show="!logued" class="d-flex">
+
+                    <button @click="loginWithMail()" v-show="!logued" id="quickstart-sign-in"
+                      class="mdl-button mdl-js-button mdl-button--raised btn-success boton">LogIn</button>
+                    <button @click="createUser()" v-show="!logued" id="quickstart-sign-in"
+                      class="mdl-button mdl-js-button mdl-button--raised btn-success boton">Create new Account</button>
+                  </div>
+                  <!-- <button @click="handleSignUp()" v-show="!(user!=null)" id="quickstart-sign-up" class="mdl-button mdl-js-button mdl-button--raised btn-success boton">Sign Up</button> -->
+                  <div v-show="!logued" class="noshow">
+
+                    <p>No usar</p><button disabled @click="sendEmailVerification()" v-show="!logued"
+                      id="quickstart-verify-email" name="verify-email"
+                      class="mdl-button mdl-js-button mdl-button--raised btn-success boton">Send email
+                      verification</button>
+                    <button @click="sendPasswordReset()" id="quickstart-password-reset" name="verify-email"
+                      v-show="!logued" class="mdl-button mdl-js-button mdl-button--raised btn-success boton">Send
+                      Password reset email</button>
+
+                  </div>
+                </div>
+                {{checkLogin}}
+                <p v-show="logued">Welcome {{userMail}}</p>
+                <button @click="logOut()" v-show="logued" id="logout"
+                  class="mdl-button mdl-js-button mdl-button--raised btn-danger boton"> Log Out </button>
+              </div>
+            </div>
+
+          </div>
+          <div>
+            <h1>Save the King</h1>
+          </div>
+          <button class="navbar-toggler text-bg-light" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon text-bg-light"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/biblioteca.html">Link</a>
+                <a class="nav-link" href="#">Link</a>
+              </li>
+
+
+
+          </div>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <div class="login-form-container">
+    <div id="close-login-btn" class="fas fa-times"></div>
+    <form action="">
+      <h3>sign in</h3>
+      <span>username</span>
+      <input type="email" class="box" placeholder="enter your email">
+      <span>password</span>
+      <input type="password" class="box" placeholder="enter your password">
+      <div class="checkbox">
+        <input type="checkbox" id="remember-me">
+        <label for="remember-me">remember me</label>
+
+      </div>
+      <input type="submit" value="sign in" class="btn">
+      <p>forget password ? <a href="#" class="click">click here</a></p>
+      <p> don't have an account? <a href="#" class="click">create one</a></p>
+    </form>
+  </div>
+
+  <main>
+
+
+    <section class="seccion">
+      <div>
+        <h2>Sobre Nosotros</h2>
+        <img src="/images/pngwing.com.png" alt="">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga praesentium sed ad odit quasi rerum ex unde
+          earum, animi repellat in soluta nam voluptate reprehenderit esse veritatis dolore. Id, eius.</p>
+      </div>
+    </section>
+    <section class="seccion">
+      <h2>Libreria</h2>
+      <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <img src="..." class="rounded me-2" alt="...">
+          <strong class="me-auto">Bootstrap</strong>
+          <small class="text-muted">11 mins ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+      </div>
+    </section>
+    <section>
+      autores
+    </section>
+    <section>
+      <h2>indie</h2>
+    </section>
+    <section class="seccion2">
+
+
+      <h2>Más leidos</h2>
+
+      <div class="libros row">
+        <div class="card col" style="width: 25vw;">
+          <img src="images/hp.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter y el legado maldito</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+
+          </div>
+        </div>
+        <div class="card col" style="width: 25vw;">
+          <img src="/images/alquimista.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h6 class="card-title">El Alquimista - Paulo Coelho</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+
+          </div>
+        </div>
+        <div class="card col" style="width: 25vw;">
+          <img src="images/ana.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h6 class="card-title">Diario de Anna Frank</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- loader -->
+    <div class="loader-container">
+      <img src="images/loader-img.gif" alt="">
+
+    </div>
+    <!-- end loader -->
+    </div>
+
+
+
+
+
+
+
+    <!-- bottom navbar -->
+    <nav class="bottom-navbar">
+      <a href="#featured"><img src="/images/book-free-icon-font.png" alt="" class="icon"></a>
+      <a href="#home"><img src="/images/home-free-icon-font (1).png" alt="" class="icon"></a>
+      <a href="#arrivals"><img src="/images/edit-free-icon-font.png" alt="" class="icon"></a>
+
+
+      <!--end bottom navbar -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </main>
+
+
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+
+
+  <!-- custom js file -->
+  <script src="script/main.js"></script>
+
+
 </body>
+
 </html>

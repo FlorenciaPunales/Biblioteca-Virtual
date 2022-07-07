@@ -2,155 +2,241 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bookstore</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+  <link rel="icon" href="images/icon.png">
+  <!-- font awesome cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-    <!-- font awesome cdn link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
-    <!-- custom css file link -->
-    <link rel="stylesheet" href="/style/style.css">
+  <!-- custom css file link -->
+  <link rel="stylesheet" href="/style/style.css">
 </head>
 
 <body>
+  <div id="app">
+   
     <header class="header">
-        <div class="header-1">
-            <a href="#" class="logo"><i class="fas fa-book"></i> Save the King  </a>
-            <form action="" class="search-form">
-                <input type="serch" name="" placeholder="search here..." id="serch-box">
-                <label for="search-box" class="fas fa-search"></label>
-            </form>
-            <div class="icons">
-                <div id="search-btn" class="fas fa-search"></div>
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-shopping-cart"></a>
-                <div id="login-btn" class="fas fa-user"></div>
-            </div>
+      <div class="header-1">
+        <a href="#" class="logo"><i class="fas fa-book"></i> Salven al Rey </a>
+        <form action="" class="search-form">
+          <input type="serch" name="" placeholder="search here..." id="serch-box">
+          <label for="search-box" class="fas fa-search"></label>
+        </form>
+        <div class="icons">
+          <div id="search-btn" class="fas fa-search"></div>
+          <a href="#" class="fas fa-heart"></a>
+          <a href="#" class="fas fa-shopping-cart"></a>
+          <div id="login-btn" class="fas fa-user"></div>
         </div>
+      </div>
 
-        <div class="header-2">
-            <nav class="navbar">
-                <a href="#home">Inicio</a>
-                <a href="#featured">Ofertas</a>
-                <a href="#arrivals">Nuevos Ingresos</a>
-                <a href="#reviews">Comentarios</a>
-                <a href="#blogs">Notas</a>
+      <div class="header-2">
+        <nav class="navbar">
+          <a href="#home">Inicio</a>
+          <a href="#featured">Ofertas</a>
+          <a href="#arrivals">Nuevos Ingresos</a>
+          <a href="#reviews">Comentarios</a>
+          <a href="#blogs">Notas</a>
 
-            </nav>
-        </div>
-        <div>
-            <nav class="navbar navbar-expand-lg mobile">
-                <div class="container-fluid">
-                    <div>
-                        <img src="/images/user.png" alt="" class="imagenlogin">
-                    </div>  
-                  <button class="navbar-toggler text-bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon text-bg-light"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/biblioteca.html">Link</a>
-                        <a class="nav-link" href="#">Link</a>
-                      </li>
-                      
-                        
-                     
-                  </div>
+        </nav>
+      </div>
+      <div>
+        <nav class="navbar navbar-expand-lg mobile">
+          <div class="container-fluid">
+            <div class="log">
+              <a class="" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                aria-controls="offcanvasExample">
+                <img src="/images/user.png" alt="" class="icon">
+              </a>
+              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header flex-row justify-content-between w-100">
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Login</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                
-              </nav>
-        </div>
+                <div class="offcanvas-body">
+                  <div v-show="!logued" class="loginInput  d-flex flex-column gap-3">
+                    <input id="email" v-show="!logued" type="text" placeholder="email">
+                    <input id="password" v-show="!logued" type="password" placeholder="password">
+                  </div>
+                  <div class="loginButtons d-flex flex-column gap-3 mt-5">
+                    <div v-show="!logued" class="d-flex">
+
+                      <button @click="loginWithMail()" v-show="!logued" id="quickstart-sign-in"
+                        class="mdl-button mdl-js-button mdl-button--raised btn-success boton">LogIn</button>
+                      <button @click="createUser()" v-show="!logued" id="quickstart-sign-in"
+                        class="mdl-button mdl-js-button mdl-button--raised btn-success boton">Create new
+                        Account</button>
+                    </div>
+                    <!-- <button @click="handleSignUp()" v-show="!(user!=null)" id="quickstart-sign-up" class="mdl-button mdl-js-button mdl-button--raised btn-success boton">Sign Up</button> -->
+                    <div v-show="!logued" class="noshow">
+
+                      <p>No usar</p><button disabled @click="sendEmailVerification()" v-show="!logued"
+                        id="quickstart-verify-email" name="verify-email"
+                        class="mdl-button mdl-js-button mdl-button--raised btn-success boton">Send email
+                        verification</button>
+                      <button @click="sendPasswordReset()" id="quickstart-password-reset" name="verify-email"
+                        v-show="!logued" class="mdl-button mdl-js-button mdl-button--raised btn-success boton">Send
+                        Password reset email</button>
+
+                    </div>
+                  </div>
+                  {{checkLogin}}
+                  <p v-show="logued">Welcome {{userMail}}</p>
+                  <button @click="logOut()" v-show="logued" id="logout"
+                    class="mdl-button mdl-js-button mdl-button--raised btn-danger boton"> Log Out </button>
+                </div>
+              </div>
+
+            </div>
+            <div>
+              <h1>Save the King</h1>
+            </div>
+            <button class="navbar-toggler text-bg-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon text-bg-light"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/biblioteca.html">Link</a>
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+
+
+
+            </div>
+          </div>
+
+        </nav>
+      </div>
     </header>
 
     <div class="login-form-container">
-        <div id="close-login-btn" class="fas fa-times"></div>
-        <form action="">
-            <h3>sign in</h3>
-            <span>username</span>
-            <input type="email" class="box" placeholder="enter your email">
-            <span>password</span>
-            <input type="password" class="box" placeholder="enter your password">
-            <div class="checkbox">
-                <input type="checkbox" id="remember-me">
-                <label for="remember-me">remember me</label>
+      <div id="close-login-btn" class="fas fa-times"></div>
+      <form action="">
+        <h3>sign in</h3>
+        <span>username</span>
+        <input type="email" class="box" placeholder="enter your email">
+        <span>password</span>
+        <input type="password" class="box" placeholder="enter your password">
+        <div class="checkbox">
+          <input type="checkbox" id="remember-me">
+          <label for="remember-me">remember me</label>
 
-            </div>
-            <input type="submit" value="sign in" class="btn">
-            <p>forget password ? <a href="#" class="click">click here</a></p>
-            <p> don't have an account? <a href="#" class="click">create one</a></p>
-        </form>
+        </div>
+        <input type="submit" value="sign in" class="btn">
+        <p>forget password ? <a href="#" class="click">click here</a></p>
+        <p> don't have an account? <a href="#" class="click">create one</a></p>
+      </form>
     </div>
 
     <main>
 
-    <section class="seccion">
-        <h2>Save the King</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum accusantium, voluptate dolorem quam labore magnam consectetur iste quasi ipsa ipsum suscipit quia provident placeat accusamus, necessitatibus magni debitis a ratione.</p>
-    </section>
-    <section>
-        <h2>Lbireria</h2>
-    </section>
-    <section>
-        autores
-    </section>
-    <section><h2>indie</h2></section>
-    <section>
-        <h2>Más leidos</h2>
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <section class="seccion3">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active carouim">
+              <img src="/images/DEstacados.png" class="d-block w-100" alt="...">
             </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="..." class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>First slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Some representative placeholder content for the second slide.</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Third slide label</h5>
-                  <p>Some representative placeholder content for the third slide.</p>
-                </div>
-              </div>
+            <div class="carousel-item carouim">
+              <img src="images/destacados2.png" class="d-block w-100" alt="...">
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+            <div class="carousel-item carouim">
+              <img src="images/destacados3.png" class="d-block w-100" alt="...">
+            </div>
           </div>
-    </section>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+      <section class="seccion">
+        <div>
+          <h2>Sobre Nosotros</h2>
+          <img src="/images/pngwing.com.png" alt="">
+          <p>Salven al Rey es un café con biblioteca integrada.
+            Nuestro principal objetivo es poder mantener la costumbre de leer y adentrarse en un nuevo mundo.
+            Contamos con una cafetería que incluye una biblioteca para que puedas venir a tomar un café y sentarte a
+            leer un buen libro.
+            Nuestra página cuenta con una biblioteca virtual y un apartado para que si vos estás interesado en escribir
+            puedas compartirlo con los demás.
+            Cada cierto tiempo hacemos una publicación del libro escrito por ustedes más valorado. Ese libro lo ponemos
+            en la biblioteca de nuestro café.</p>
+        </div>
+      </section>
+      <section class="/ic">
+        <h2>Libreria</h2>
+        <!-- <img src="images/bookseccion.png" alt=""> -->
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, ratione voluptatem, tempore quos enim at
+          nulla possimus magnam quo, accusamus quas aliquam nostrum quasi sed sunt. Dicta doloribus blanditiis
+          repellendus.</p>
+      </section>
+      <section class="seccion2">
+        <h2>Biblioteca Independiente</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, nobis. Inventore enim esse corporis fuga
+          laboriosam sed aspernatur nulla quae, similique, ipsum fugit qui error natus aliquam doloribus dicta eum?</p>
+      </section>
+      <section class="seccion2">
+        <h2>Indie</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto voluptas delectus qui id fuga similique,
+          quibusdam cumque beatae amet labore maiores itaque, in eveniet corrupti dolores sed nulla sapiente sint.</p>
+      </section>
+      <section class="seccion2">
 
 
-    <!-- loader -->
+        <h2>Más leidos</h2>
+
+        <div class="libros">
+          <div class="card">
+            <img src="images/harrypotter.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h4 class="card-title">Harry Potter y la piedra filosofal</h4>
+
+
+            </div>
+          </div>
+          <div class="card">
+            <img src="/images/alquimista.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h4 class="card-title">El Alquimista - Paulo Coelho</h4>
+
+
+            </div>
+          </div>
+          <div class="card">
+            <img src="images/anna.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h4 class="card-title">Diario de Anna Frank</h4>
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+       <!-- loader -->
     <div class="loader-container">
-        <img src="img/loader-img.gif" alt="">
+      <img src="images/loader-img.gif" alt="">
 
     </div>
     <!-- end loader -->
+  </div>
 
 
 
@@ -158,14 +244,14 @@
 
 
 
-    <!-- bottom navbar -->
-    <nav class="bottom-navbar">
-      <a href="#featured" ><img src="/images/book-free-icon-font.png" alt="" class="icon"></a>
-      <a href="#home"><img src="/images/home-free-icon-font (1).png" alt="" class="icon"></a>
-      <a href="#arrivals"><img src="/images/edit-free-icon-font.png" alt="" class="icon"></a>
-      
+  <!-- bottom navbar -->
+  <nav class="bottom-navbar">
+    <a href="biblioteca.html"><img src="/images/book-free-icon-font.png" alt="" class="icon"></a>
+    <a href="index.html"><img src="/images/home-free-icon-font (1).png" alt="" class="icon"></a>
+    <a href="#arrivals"><img src="/images/edit-free-icon-font.png" alt="" class="icon"></a>
 
-        <!--end bottom navbar -->
+
+    <!--end bottom navbar -->
 
 
 
@@ -183,14 +269,19 @@
 
 
     </main>
+  </div>
 
 
-        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/vue@3"></script>
 
 
-        <!-- custom js file -->
-        <script src="script/main.js"></script>
+   
+
+    <script src="script/main.js"></script>
 
 
 </body>
