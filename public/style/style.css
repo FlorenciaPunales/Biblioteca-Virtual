@@ -98,19 +98,89 @@
   .header .header-2 {
     display: none;
   }
-
+.banner {
+  margin: 1.5rem;
+}
+.imgbanner {
+  border-radius: 2rem;
+}
   .bottom-navbar {
     display: flex;
     justify-content: space-between;
-    
-    
+  }
+  .loguito {
+    width: 6.5rem;
+  }
+  .votado img {
+    width: 12rem;
+    margin: 1rem;
+  }
+  .votadodescripcion{
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+  
+    /* BOTONES FLOTANTES*/
+
+#btn-mas{
+  display: none;
+}
+
+.contenedorbtn{
+  position: fixed;
+  bottom: 10rem;
+  width: 99%;
+  padding: 1rem;
+  margin: 0.5rem;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-end;
+  align-self: flex-end;
+}
+
+
+.btns-escritura a, .icon-mas2{
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: blueviolet;
+  height: 3.5rem;
+  width: 3.5rem;
+  line-height: 2.5rem;
+  box-shadow: 0px 1px 10px;
+  transition: all 500ms ease;
+}
+
+.btns-escritura a:hover{
+  background-color: aqua;
+}
+
+.btns-escritura a {
+  margin-bottom: -0.5rem;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#btn-mas:checked~ .btns-escritura a{
+  margin-bottom: 1rem;
+  opacity: 1;
+  visibility: visible;
+}
+
+.icon-mas2{
+  cursor: pointer;
+}
+
+#btn-mas:checked ~ .btn-mas .icon-mas2{
+  transform: rotate(137deg);
+}
   }
   .windows {
-    height: 80vh;
+    min-height: 80vh;
   }
-  #bannerone {
-    background: url(../images/libreria4.jpg);
-  }
+  
   loader-container img {
     height: 10rem;
   }
@@ -197,13 +267,18 @@
     background-color: #81559b;
     position: fixed;
     width: 100%;
-    z-index: 1000;
-   
-   
-    
-      
+    z-index: 1000;   
      
     
+  }
+  .votado {
+    display: flex;
+    
+  }
+  .portadas img{
+    width: 8rem;
+    margin: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
   .container-fluid {
     display: flex;
@@ -216,7 +291,7 @@
   
 
  
-}
+
 
 @media (max-width: 770px) {
   html {

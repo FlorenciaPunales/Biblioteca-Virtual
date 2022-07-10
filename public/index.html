@@ -61,36 +61,26 @@
                     <button type="submit" class="btn" id="quickstart-google-sign-in" v-on:click="toggleGoogleSignIn"
                       v-show="!usuario">Sign in with Google</button>
                   </form>
-                  {{checkLogin}}
+                  {{checkLogin}} 
 
-
-                </div>
+                  
+                </div> 
               </div>
-
             </div>
+              
             <div>
-              <h1>{{tittle}}</h1>
+              <h1 class="titulo">{{tittle}}</h1>
             </div>
-            <button class="navbar-toggler text-bg-light" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-              aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon text-bg-light"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/biblioteca.html">Link</a>
-                  <a class="nav-link" href="#">Link</a>
-                </li>
+            
 
 
 
-            </div>
+          
+          
+          <div>
+            <img src="images/Icono.png" class="loguito" alt="">
+          
           </div>
-
         </nav>
       </div>
     </header>
@@ -98,7 +88,39 @@
     
 
     <div class="windows" id="Inicio" v-if="tittle == 'Inicio'">
-
+      <section class="banner">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+              <img src="images/banner1.png" class="d-block w-100 imgbanner" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="images/banner2.png" class="d-block w-100 imgbanner" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the second slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/banner3.png" class="d-block w-100 imgbanner" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
       <section class="banner1 seccion">
         <div id="bannerone">
           <div class="banner-index-texto">
@@ -160,7 +182,7 @@
             </div>
           </div>
           <div class="card">
-            <img src="/images/alquimista.png" class="card-img-top" alt="...">
+            <img src="images/alquimista.png" class="card-img-top" alt="...">
             <div class="card-body">
               <h4 class="card-title">El Alquimista - Paulo Coelho</h4>
 
@@ -186,26 +208,87 @@
       </div> -->
       <!-- end loader -->
     </div>
-    <div class="windows" id="Biblioteca" v-if="tittle == 'Biblioteca'">
-      <p>pan</p>
+    <div class="windows" id="Biblioteca" v-show="tittle == 'Biblioteca'">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="libro" v-for="libro in dataActual">
+          <img v-if="libro.volumeInfo.readingModes.image" v-bind:src="libro.volumeInfo.imageLinks.smallThumbnail" v-bind:alt="libro.title" >
+          <p>{{libro.volumeInfo.title}}</p>
+        </div>
+
+      </div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" @click="cambiarPag(false)" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          
+          <li class="page-item" v-for="n in Math.ceil(data.length/10)"><a class="page-link" @click="cargarLibros(n)" href="#">{{n}}</a></li>
+          <li class="page-item">
+            <a class="page-link" @click="cambiarPag(true)" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <div id="Indie" v-if="tittle == 'Indie'">
-      <h2>Publicados REcientemente</h2>
+    <div id="Indie" v-show="tittle == 'Biblioteca Indie'">
+      <!-- <h3>Bienvenido a nuestra Biblioteca Indie <p v-show="usuario!=null">{{usuarioName || usuarioEmail}}</p></h3> -->
+      <img src="images/bannerindie.png" class="img-fluid imgbanner" alt="...">
+      <div>
+        <h3>Historias Publicadas</h3>
+        <div class="portadas d-flex">
+          <img src="images/portada1.jpg" class="col" alt="">
+          <img src="images/portada02.jpg" class="col" alt="">
+          <img src="images/portada03.jpg" class="col" alt="">
+          <img src="images/portada04.jpg"  class="col" alt="">
+        </div>
+        <div>
+          <h3>El más votado este mes</h3>
+          <div class="votado">
+            <div>
+              <img src="images/masvotado.jpg" alt="">
+            </div>
+          <div class="votadodescripcion">
+            <h6>Confesión - Ana Ramos</h6>
+            <p>Cuando eres la perfecta definición del omega imperfecto, pierdes todo pensamiento positivo de algún día encontrar al amor de tu vida.</p>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      
     </div>
 
 
 
 
 
-
+    <div class="contenedorbtn sticky-bottom mb-1" v-show="tittle == 'Biblioteca Indie'">
+      <input type="checkbox" id="btn-mas">
+      <div class="btns-escritura">
+          <a href="autores.html" class="escritura-vieja rounded-circle">
+              <img src="images/document-free-icon-font.png" width="14" height="14"  alt="">
+          </a>
+          <a href="index2.html" class="escritura-nueva rounded-circle">
+              <img src="images/add-document-free-icon-font.png" width="14" height="14" alt="">
+          </a>
+      </div>
+      <div class="btn-mas ">
+          <label for="btn-mas" class="icon-mas2 rounded-circle">
+              <img src="images/plus-free-icon-font.png" width="14" height="14" alt="">
+          </label>
+      </div>
+  </div>
 
     <!-- bottom navbar -->
     <nav class="bottom-navbar">
-      <a href="#" @click="tittle = 'Biblioteca'"><img src="/images/book-free-icon-font.png" alt="" 
+      <a href="#" @click="tittle = 'Biblioteca'"><img src="images/book-free-icon-font.png" alt="" 
           class="icon"></a>
       <a href="#" @click="tittle = 'Inicio'"><img src="images/home-free-icon-font (1).png" alt="" 
           class="icon"></a>
-      <a href="#"  @click="tittle = 'Indie'"><img src="images/edit-free-icon-font.png" alt="" class="icon"></a>
+      <a href="#"  @click="tittle = 'Biblioteca Indie'"><img src="images/edit-free-icon-font.png" alt="" class="icon"></a>
 
 
       <!--end bottom navbar -->
@@ -229,11 +312,10 @@
   </div>
 
 
-  <script src="/__/firebase/9.8.3/firebase-app-compat.js"></script>
-  <!-- include only the Firebase features as you need -->
+ <script src="/__/firebase/9.8.3/firebase-app-compat.js"></script>
   <script src="/__/firebase/9.8.3/firebase-auth-compat.js"></script>
   <script src="/__/firebase/9.8.3/firebase-database-compat.js"></script>
-  <script src="/__/firebase/init.js"></script>
+  <script src="/__/firebase/init.js"></script> 
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
@@ -242,7 +324,7 @@
 
 
 
-
+  <script src="script/data.js"></script>
   <script src="script/main.js"></script>
 
 

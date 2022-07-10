@@ -1,21 +1,35 @@
 Vue.createApp({
-  data(){
-      return {
-        user: {},
-        usuario: {},
-        usuarioName: "",
-        usuarioPhoto: "",
-        usuarioEmail: "",
-        tittle:'Inicio',
+  data() {
+    return {
+      user: {},
+      usuario: {},
+      usuarioName: "",
+      usuarioPhoto: "",
+      usuarioEmail: "",
+      tittle: 'Inicio',
+      data: [],
+      dataActual: [],
+      pagina: 1
+    }
+  },
+  created() {
+    this.data = data.items
+    this.dataActual = this.data.slice(0, 10)
+
+
+
+
+  },
+  mounted() {
+    document.querySelectorAll(".page-item").forEach(item => {
+      if (item.children[0].innerText == this.pagina.toString()) {
+        item.classList.add('active')
       }
-  },
-  created(){
-    
-      
-  },
-  mounted(){
+    })
+
+
     window.onload = function () {
-      fadeOute();
+      
       firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
           this.usuario = user;
@@ -31,7 +45,41 @@ Vue.createApp({
       });
     };
   },
-  methods:{
+  methods: {
+    cambiarPag: function (booleano) {
+      if (booleano) {
+        if (this.pagina != Math.ceil(data.length / 10)) {
+          this.pagina = this.pagina + 1
+          this.cargarLibros(this.pagina)
+        }
+      }
+      else {
+        if (this.pagina != 1) {
+          this.pagina = this.pagina - 1
+          this.cargarLibros(this.pagina)
+        }
+      }
+
+
+    },
+
+    cargarLibros: function (n) {
+      let min = (n - 1) * 10
+      let max = n * 10
+      this.dataActual = this.data.slice(min, max)
+      let items = document.querySelectorAll(".page-item")
+      this.pagina = n
+      items.forEach(item => {
+
+        if (item.children[0].innerText == this.pagina.toString()) {
+          item.classList.add('active')
+        }
+        else {
+
+          item.classList.remove('active')
+        }
+      })
+    },
     toggleSignIn: function () {
       if (firebase.auth().currentUser) {
         firebase.auth().signOut();
@@ -125,9 +173,11 @@ Vue.createApp({
         console.log(error);
       });
     },
-      
+
   },
   computed: {
+
+
     checkLogin: function () {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -156,13 +206,13 @@ Vue.createApp({
 // function fadeOute() {
 //   setTimeout(loader, 4000)
 // }
-// window.onscroll = () => {
-//   searchForm.classList.remove('active')
-//   if (window.scrollY > 80) {
-//     document.querySelector('.header .header-2').classList.add('active');
+//  window.onscroll = () => {
+//    searchForm.classList.remove('active')
+//    if (window.scrollY > 80) {
+//      document.querySelector('.header .header-2').classList.add('active');
 
-//   } else {
-//     document.querySelector('.header .header-2').classList.remove('active');
+//    } else {
+//      document.querySelector('.header .header-2').classList.remove('active');
 
 //   }
 // }
