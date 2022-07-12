@@ -53,8 +53,7 @@
                     </div>
                     <div>
                       <h3 v-show="user!=null">Ingresaste con exito!</h3>
-                      <img id="photo.user" v-show="user!=null" :src="userPhoto" alt="photo-usuario"
-                        class="photo-login">
+                      <img id="photo.user" v-show="user!=null" :src="userPhoto" alt="photo-usuario" class="photo-login">
                       <p v-show="user!=null">Bienvenido, {{userName || userMail}}</p>
                     </div>
                     <button type="submit" class="btn" id="quickstart-sign-in" v-on:click="toggleSignIn">Sign in</button>
@@ -90,7 +89,7 @@
     <div class="windows" id="Inicio" v-if="tittle == 'Inicio'">
       <section class="banner">
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
+          <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
               aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
@@ -102,7 +101,7 @@
             <div class="carousel-item active" data-bs-interval="10000">
               <img src="images/banner1.png" class="d-block w-100 imgbanner  carouselShadow" alt="...">
               <div class="carousel-caption d-none d-md-block">
-            
+
               </div>
             </div>
             <div class="carousel-item" data-bs-interval="2000">
@@ -119,20 +118,21 @@
           </div>
 
         </div>
-        <h4 class="mt-1">Bienvenido a la biblioteca "Salven al Rey"<span v-show="logued">, {{userName || userMail}}</span></h4>
+        <h4 class="mt-1">Bienvenido a la biblioteca "Salven al Rey"<span v-show="logued">, {{userName ||
+            userMail}}</span></h4>
       </section>
       <section class="historiasbook">
-              <h3 class="subtitulo">Descubre historias en linea</h3>
-          <div class="portadas d-flex">
-            <img src="images/home1.jpg" class="col" alt="">
-            <img src="images/home2.jpg" class="col" alt="">
-            <img src="images/home3.jpg" class="col" alt="">
-            <img src="images/home4.jpg" class="col" alt="">
-            
-          </div>
-          <p class="descripcion h5">Podrás crear tus propios escritos y publicarlos en la
-            plataforma.</p>
-          
+        <h3 class="subtitulo">Descubre historias en linea</h3>
+        <div class="portadas d-flex">
+          <img src="images/home1.jpg" class="col" alt="">
+          <img src="images/home2.jpg" class="col" alt="">
+          <img src="images/home3.jpg" class="col" alt="">
+          <img src="images/home4.jpg" class="col" alt="">
+
+        </div>
+        <p class="descripcion h5">Podrás crear tus propios escritos y publicarlos en la
+          plataforma.</p>
+
 
       </section>
 
@@ -146,19 +146,19 @@
             <img src="images/locali.png" alt="" class="icon2 m-lg-5">
             <p class="text-center"><b>Nos encontramos en: </b>Av. Rivadavia 5033, C1424CEF CABA</p>
           </div>
-        
+
         </div>
-          <div>
-            <h2 class="text-center">Sobre Nosotros</h2>
-            
-            <p class="h5 text-center" >Salven al Rey es un café con biblioteca integrada.
-              Nuestro principal objetivo es poder mantener la costumbre de leer y adentrarse en un nuevo mundo.
-              Contamos con una cafetería que incluye una biblioteca para que puedas venir a tomar un café y sentarte a
-              leer un buen libro.
-              Nuestra página cuenta con una biblioteca virtual y un apartado para que si vos estás interesado en escribir
-              puedas compartirlo con los demás.
-              Cada cierto tiempo hacemos una publicación del libro escrito por ustedes más valorado. Ese libro lo ponemos
-              en la biblioteca de nuestro café.</p>
+        <div>
+          <h2 class="text-center">Sobre Nosotros</h2>
+
+          <p class="h5 text-center">Salven al Rey es un café con biblioteca integrada.
+            Nuestro principal objetivo es poder mantener la costumbre de leer y adentrarse en un nuevo mundo.
+            Contamos con una cafetería que incluye una biblioteca para que puedas venir a tomar un café y sentarte a
+            leer un buen libro.
+            Nuestra página cuenta con una biblioteca virtual y un apartado para que si vos estás interesado en escribir
+            puedas compartirlo con los demás.
+            Cada cierto tiempo hacemos una publicación del libro escrito por ustedes más valorado. Ese libro lo ponemos
+            en la biblioteca de nuestro café.</p>
         </div>
       </section>
       <section>
@@ -169,18 +169,18 @@
 
           </div>
           <h3 class="subtitulo">Últimas tapas agregadas</h3>
-      <div class="portadas d-flex">
-        <img src="images/libreria1.jfif" class="col" alt="">
-        <img src="images/libreria2.jfif" class="col" alt="">
-        <img src="images/libreria3.jfif" class="col" alt="">
-        <img src="images/libreria4.jfif" class="col" alt="">
-        
-      </div>
-      <p class="descripcion">Podrás crear tus propios escritos y publicarlos en la
-        plataforma.</p>
-      
+          <div class="portadas d-flex">
+            <img src="images/libreria1.jfif" class="col" alt="">
+            <img src="images/libreria2.jfif" class="col" alt="">
+            <img src="images/libreria3.jfif" class="col" alt="">
+            <img src="images/libreria4.jfif" class="col" alt="">
 
-  </section>
+          </div>
+          <p class="descripcion">Podrás crear tus propios escritos y publicarlos en la
+            plataforma.</p>
+
+
+        </section>
       </section>
       <section class="seccion2">
         <h2>Biblioteca Independiente</h2>
@@ -226,14 +226,14 @@
         </div> -->
       </section>
 
-      
+
 
     </div>
     <div class="windows" id="Biblioteca" v-show="tittle == 'Biblioteca'">
       <div class="d-flex justify-content-evenly flex-wrap">
         <div class="libro d-flex flex-column librobiblioteca" v-for="libro in dataActual">
-          <img v-if="libro.volumeInfo.readingModes.image" v-bind:src="libro.volumeInfo.imageLinks.smallThumbnail || images/nobok.jpg"
-            v-bind:alt="libro.title">
+          <img v-if="libro.volumeInfo.readingModes.image"
+            v-bind:src="libro.volumeInfo.imageLinks.smallThumbnail || images/nobok.jpg" v-bind:alt="libro.title">
           <p>{{libro.volumeInfo.title}}</p>
         </div>
 
@@ -259,7 +259,8 @@
     <div id="Indie" v-show="tittle == 'Biblioteca Indie'">
       <section v-show="element == ''">
         <img src="images/bannerindie.png" class="img-fluid imgbanner" alt="...">
-        <h4 class="mt-1">Bienvenido a nuestra Biblioteca Indie<span v-show="logued">, {{userName || userMail}}</span></h4>
+        <h4 class="mt-1">Bienvenido a nuestra Biblioteca Indie<span v-show="logued">, {{userName || userMail}}</span>
+        </h4>
 
         <div>
           <h3 class="subtitulo">Historias Publicadas</h3>
@@ -291,10 +292,10 @@
         <div class="contenedorbtn sticky-bottom mb-1" v-show="tittle == 'Biblioteca Indie'">
           <input type="checkbox" id="btn-mas">
           <div class="btns-escritura">
-            <a href="#" @click="element = 'element1'"  class="escritura-vieja rounded-circle">
+            <a href="#" @click="element = 'element1'" class="escritura-vieja rounded-circle">
               <img src="images/document-free-icon-font.png" width="14" height="14" alt="">
             </a>
-            <a href="#"  @click="element = 'comentarios'" v-show="logued" class="escritura-nueva rounded-circle">
+            <a href="#" @click="element = 'comentarios'" v-show="logued" class="escritura-nueva rounded-circle">
               <img src="images/add-document-free-icon-font.png" width="14" height="14" alt="">
             </a>
           </div>
@@ -318,20 +319,20 @@
             <input type="text" class="w-100 flex-grow-1 my-2 areadetexto" placeholder="Comment" id="comment">
             <button class="btn-success" id="liveToastBtn" @click="escribirComentarios()">Send Comment</button>
           </div>
-          
-<div class="toast-container top-0 start-50 translate-middle-x">
-  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="..." class="rounded me-2" alt="...">
-      <strong class="me-auto">Gracias!</strong>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Tu escrito ha sido publicado.
-    </div>
-  </div>
-</div>
-          
+
+          <div class="toast-container top-0 start-50 translate-middle-x">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Gracias!</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Tu escrito ha sido publicado.
+              </div>
+            </div>
+          </div>
+
 
         </div>
 
@@ -339,43 +340,52 @@
       <section v-show="element == 'element1'">
         <button v-on:click="element = ''" class="btn btn-danger">Volver</button>
         <div class="comentarios">
-          <h3>Comments </h3>
+          <h3 class="text-center">Escritos</h3>
+
         </div>
-        <div v-for="comentario in comentarios">
-         
-          <div class="card">
-            
-            <div class="card-title">
-              <h6>{{comentario.user}}</h6>
+      <div v-for="comentario in comentarios" class="todo">
+
+
+          <div class="historia-publicacion p-2">
+            <div class="perfil-publicacion-contenido">
               <img :src="comentario.photo" alt="" height="100">
+              <h4 class="d-flex align-content-center">{{comentario.user}}</h4>
             </div>
 
-            <div class="card-body">
-              <h4>{{comentario.title}}</h4>
-              <p>{{comentario.comment}}</p>
-              <input v-model="comment" type="text" id="commentReal">
-              <p>{{comentario.bookId}}</p>
-              <button @click="escribirComentariosReal(comentario.bookId)">Comentar</button>
-              <div v-for="comentarioR in comentariosReal" v-show="comentarioR.bookId == comentario.bookId" class="card">
-                <div class="card-title">
-                  <h6>{{comentarioR.user}}</h6>
-                  <img :src="comentarioR.photo" alt="" height="100">
+              <div class="historia">
+                <div class="historia-publicacion-contenido p-2">
+                  <h3><strong>{{comentario.title}}</strong></h3>
+
                 </div>
-                <div class="card-body">
-                  <p>{{comentarioR.comment}}</p>
+                <div class="historia-publicacion-descripcion">
+                  <p>{{comentario.comment}}</p>
                 </div>
-                
-              </div>
-
-
-
             </div>
           </div>
-        </div>
+          <input v-model="comment" type="text" id="commentReal">
+          <!-- <p>{{comentario.bookId}}</p> -->
+          <button @click="escribirComentariosReal(comentario.bookId)">Comentar</button>
+          <div v-for="comentarioR in comentariosReal" v-show="comentarioR.bookId == comentario.bookId" class="card">
+            <h4 class="text-center">Comentarios</h4>
+            <div class="card-title">
+              <h6>{{comentarioR.user}}</h6>
+              <img :src="comentarioR.photo" alt="" height="100">
+            </div>
+            <div class="card-body">
+              <p>{{comentarioR.comment}}</p>
+            </div>
+
+          </div>
+
+
+
+      </div>
+
+    
       </section>
 
-    </div>
-   
+     </div>
+
 
 
 
@@ -398,13 +408,10 @@
     <nav class="bottom-navbar">
       <a href="#" @click="tittle = 'Biblioteca'"><img src="images/book-free-icon-font.png" alt="" class="icon"></a>
       <a href="#" @click="tittle = 'Inicio'"><img src="images/home-free-icon-font (1).png" alt="" class="icon"></a>
-      <a href="#" @click="tittle = 'Biblioteca Indie'"><img src="images/edit-free-icon-font.png" alt=""
-          class="icon"></a>
+      <a href="#" @click="tittle = 'Biblioteca Indie'"><img src="images/edit-free-icon-font.png" alt="" class="icon"></a>
 
-
-      <!--end bottom navbar -->
-
-
+    </nav>
+    <!--end bottom navbar -->
 
 
 
@@ -420,23 +427,25 @@
 
 
 
-  </div>
 
 
-  <script src="/__/firebase/9.8.3/firebase-app-compat.js"></script>
-  <script src="/__/firebase/9.8.3/firebase-auth-compat.js"></script>
-  <script src="/__/firebase/9.8.3/firebase-database-compat.js"></script>
-  <script src="/__/firebase/init.js"></script>
-  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-    crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/vue@3"></script>
+    </div>
+
+
+    <script src="/__/firebase/9.8.3/firebase-app-compat.js"></script>
+    <script src="/__/firebase/9.8.3/firebase-auth-compat.js"></script>
+    <script src="/__/firebase/9.8.3/firebase-database-compat.js"></script>
+    <script src="/__/firebase/init.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3"></script>
 
 
 
-  <script src="script/data.js"></script>
-  <script src="script/main.js"></script>
+    <script src="script/data.js"></script>
+    <script src="script/main.js"></script>
 
 
 </body>

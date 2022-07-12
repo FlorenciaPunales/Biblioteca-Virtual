@@ -242,6 +242,7 @@
    
   
   }
+  
   .card h4 {
     text-align: center;
     color: #210233;
@@ -249,7 +250,43 @@
   .card img {
     border-radius: 2rem;
   }
-  
+  .historia-publicacion {
+    
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  }
+  .historia-publicacion-descripcion p {
+    font-size: 12px;
+  }
+  .perfil-publicacion-contenido {
+    background-color: #ececec;
+    display: flex;
+    
+    
+  }
+  .historia-publicacion-contenido h3 {
+    text-align: center;
+  }
+  .todo {
+    background-color: rgb(250, 245, 245);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+  }
+  .historia {
+    background-color: white;
+  }
+  .perfil-publicacion-contenido p {
+    font-size: 1.5rem;
+  }
+  .perfil-publicacion-contenido img {
+    height: 10rem;
+    margin: 1rem;
+    border-width: 1.6px;
+    
+    border-radius: 50%;
+  }
+  .perfil-publicacion-contenido h4 {
+    align-items: center;
+  }
   .header-1, .header-2 {
     display: none;
   }
