@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 
 :root {
   --green: #81559bff;
@@ -23,7 +22,7 @@
   outline: none;
   border: none;
   text-decoration: none;
-  text-transform: capitalize;
+  
   transition: all 0.2s linear;
   transition: width none;
 }
@@ -99,7 +98,8 @@
     display: none;
   }
 .banner {
-  margin: 1.5rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 .imgbanner {
   border-radius: 2rem;
@@ -108,12 +108,22 @@
     display: flex;
     justify-content: space-between;
   }
+  .carouselShadow img {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
   .loguito {
     width: 6.5rem;
   }
   .votado img {
     width: 12rem;
     margin: 1rem;
+  }
+  .descripcion {
+    
+    margin-left: 1rem;
+  }
+  .subtitulo {
+    margin-left: 1rem!important;
   }
   .votadodescripcion{
     font-size: 1.2rem;
@@ -154,7 +164,8 @@
 }
 
 .btns-escritura a:hover{
-  background-color: aqua;
+  background-color: rgb(102, 30, 170);
+  height: 3.5rem;
 }
 
 .btns-escritura a {
@@ -180,7 +191,18 @@
   .windows {
     min-height: 80vh;
   }
-  
+  .librobiblioteca {
+    width: 12rem;
+  }
+  .librobiblioteca img {
+    color: wite;
+  }
+   #barra {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem
+  }
   loader-container img {
     height: 10rem;
   }
@@ -190,17 +212,27 @@
   }
   
   
-  
+ .historiasbook {
+  background-color: rgb(250, 245, 245);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+ }
   
   .card {
     margin: 1rem;
   }
-  .seccion2 {
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-    padding: .5rem;
-    margin: 1rem;
+  .icon2 {
     
-    border-radius: 2rem;
+    width: 2rem;
+  }
+  .seccionabout {
+    padding: 1rem;
+    margin: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  .buho {
+    width: 15rem;
   }
   .card {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -217,14 +249,7 @@
   .card img {
     border-radius: 2rem;
   }
-  h2 {
-    color: white;
-    text-align: center;
-    background-color: #81559bbe;
-    width: 100%;
-    border-radius: 2rem;
-    padding: .2rem;
-  }
+  
   .header-1, .header-2 {
     display: none;
   }

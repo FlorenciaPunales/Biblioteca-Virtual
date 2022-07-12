@@ -1,15 +1,22 @@
-Vue.createApp({
+const app = Vue.createApp({
   data() {
     return {
       user: {},
-      usuario: {},
-      usuarioName: "",
-      usuarioPhoto: "",
-      usuarioEmail: "",
+      userName: "",
+      userPhoto: "",
+      userMail: "",
       tittle: 'Inicio',
       data: [],
       dataActual: [],
-      pagina: 1
+      comentarios: [],
+      comentariosReal:[],
+      logued: false,
+      pagina: 1,
+      element: "",
+      escrito:0,
+      comment: "",
+      
+
     }
   },
   created() {
@@ -32,20 +39,67 @@ Vue.createApp({
       
       firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-          this.usuario = user;
+          this.user = user;
           document.getElementById('quickstart-sign-in').textContent = 'sign out';
           document.getElementById('quickstart-google-sign-in').textContent = 'sign out';
         } else {
           document.getElementById('quickstart-sign-in').textContent = 'sign in';
           document.getElementById('quickstart-google-sign-in').textContent = 'sign in with google';
-          this.usuario = {}
+          this.user = {}
         }
         document.getElementById('quickstart-sign-in').disabled = false;
         document.getElementById('quickstart-google-sign-in').disabled = false;
       });
     };
+    var commentRef = firebase.database().ref('/Comentarios/');
+    commentRef.on("child_added",(data) =>{
+      getcomments(data)
+    })
+    var commentRef2 = firebase.database().ref('/ComentariosReal/');
+    commentRef2.on("child_added",(data) =>{
+      getcommentsReal(data)
+    })
   },
   methods: {
+    escribirComentarios: function() {
+      let title = document.getElementById('titleComment').value
+      let comment = document.getElementById('comment').value
+      let newCommentKey = firebase.database().ref().child('Comentarios').push().key;
+      let comentario = {
+        bookId:newCommentKey,
+        title: title,
+        comment: comment,
+        escrito: this.escrito,
+        user: this.userName || this.userMail,
+        photo: this.userPhoto
+      } 
+      console.log(newCommentKey)
+      console.table(comentario)
+      var update = {}
+      update['/Comentarios/' + newCommentKey] = comentario
+      firebase.database().ref().update(update)
+      document.querySelectorAll('input[type="text"]').forEach(input => input.value = '');
+
+    },
+    escribirComentariosReal: function(id) {
+      /* let comment = document.getElementById('commentReal').value */
+      let newCommentKey = firebase.database().ref().child('ComentariosReal').push().key;
+      console.log(id)
+      console.log(String(id))
+      let comentarioReal = {
+        bookId: id,
+        comment: this.comment,
+        user: this.user.displayName,
+        photo: this.user.photoURL
+      }
+      console.log(newCommentKey)
+      console.log(comentarioReal)
+      
+      var update = {}
+      update['/ComentariosReal/' + newCommentKey] = comentarioReal
+      firebase.database().ref().update(update)
+      
+    },
     cambiarPag: function (booleano) {
       if (booleano) {
         if (this.pagina != Math.ceil(data.length / 10)) {
@@ -181,40 +235,54 @@ Vue.createApp({
     checkLogin: function () {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-          this.usuario = user;
-          this.usuarioEmail = JSON.parse(JSON.stringify(this.usuario)).email;
-          this.usuarioPhoto = JSON.parse(JSON.stringify(this.usuario)).photoURL;
-          this.usuarioName = JSON.parse(JSON.stringify(this.usuario)).displayName;
-          console.log(this.usuario)
+          this.logued = true;
+          this.user = user;
+          (JSON.parse(JSON.stringify(this.user)).photoURL) ? (this.userPhoto = JSON.parse(JSON.stringify(this.user)).photoURL) : (this.userPhoto = "");
+          this.userMail = JSON.parse(JSON.stringify(this.user)).email;
+          (JSON.parse(JSON.stringify(this.user)).displayName) ? (this.userName = JSON.parse(JSON.stringify(this.user)).displayName) : (this.userName = "");
+          console.log(this.user)
         }
         else {
-          this.usuario = null;
-          this.usuarioEmail = "";
-          this.usuarioPhoto = "";
-          this.usuarioName = "";
+          this.logued = false;
+          this.userMail=""
+          this.userName=""
+          this.user = null;
+          this.userPhoto = ""
+          
+          
         }
       })
     }
   }
 
 }).mount('#app')
-// loader
-// function loader() {
-//   document.querySelector('.loader-container').classList.add('active');
+function getcomments(data) {
+  let comentario = {
+    bookId: data.val().bookId,
+    title: data.val().title,
+    comment: data.val().comment,
+    escrito: data.val().escrito,
+    user: data.val().user,
+    photo: data.val().photo
+  }
+  app.comentarios.push(comentario)
+}
 
-// }
-// function fadeOute() {
-//   setTimeout(loader, 4000)
-// }
-//  window.onscroll = () => {
-//    searchForm.classList.remove('active')
-//    if (window.scrollY > 80) {
-//      document.querySelector('.header .header-2').classList.add('active');
+function getcommentsReal(data) {
+  let comentarior = {
+    bookId:data.val().bookId,
+    comment: data.val().comment,
+    user: data.val().user,
+    photo: data.val().photo
+  }
+  app.comentariosReal.push(comentarior)
+}
+const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+if (toastTrigger) {
+  toastTrigger.addEventListener('click', () => {
+    const toast = new bootstrap.Toast(toastLiveExample)
 
-//    } else {
-//      document.querySelector('.header .header-2').classList.remove('active');
-
-//   }
-// }
-
-
+    toast.show()
+  })
+}

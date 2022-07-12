@@ -1,6 +1,4 @@
 var data = {
-    "kind": "books#volumes",
-    "totalItems": 0,
     "items": [
 
         {
