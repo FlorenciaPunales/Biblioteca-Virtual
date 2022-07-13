@@ -224,6 +224,9 @@
     
     width: 2rem;
   }
+   .buho2 {
+    width: 8rem;
+   }
   .seccionabout {
     padding: 1rem;
     margin: 1.5rem;
@@ -242,6 +245,157 @@
    
   
   }
+  /* LOGIN */
+  .formulario-login {
+    display: flex; 
+    flex-direction: column;
+    margin: 2rem;
+}
+.formulario-login-iniciarSeccion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.offcanvas-title {
+  text-align: center;
+  background-color: rgb(232 210 254);
+}
+.offcanvas-body {
+  background-color: rgb(232 210 254);
+}
+.botones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logueado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logueado img {
+  border-radius: 50%;
+  border: solid;
+  border: 2px;
+  border-color:#8e68ad;
+}
+.logueado p {
+  font: 1.4rem;
+}
+.back {
+  margin-left: .5rem;
+  background-color: #81559b!important;
+  width: 10rem;
+  color: white;
+}
+.comentariosRealizadosTitulo {
+  
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+.comentariosRealizadosTitulo h6 {
+  font-size: 1.5rem;
+}
+.ComentariosRealizadosBody p{
+  font-size: 1.3rem;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+.comentariosRealizadosTitulo img {
+  border-radius: 50%;
+  width: 5rem;
+}
+.realizarComentarios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.realizarComentarios button {
+  color: white;
+  background-color: #8e68ad;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1.3rem;
+}
+.realizarComentarios input {
+  text-align: center;
+  box-shadow: rgb(59 13 59 / 40%) 0px 0px 0px 2px, rgb(6 24 44 / 65%) 0px 4px 6px -1px, rgb(255 255 255 / 8%) 0px 1px 0px inset;
+  margin: 1rem;
+  height: 10rem;
+  width: 30rem
+}
+.botones button {
+  font-size: 1.5rem;
+  padding: 1rem;
+    width: 35rem;
+    color: white;
+    margin: 1rem;
+    background-color: #8e68ad;
+  border-radius: 2rem;
+}
+.iniciar {
+  font-size: 2rem;
+  color: #8e68ad;
+}
+.sendcomentarios {
+  padding: 2rem;
+  background: #ececec;
+  margin: 2rem;
+  box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.areatitulo {
+  align-items: center;
+  width: 20rem!important;
+  height: 3rem;
+  text-align: center;
+  border-radius: 2rem;
+}
+.page-link {
+  background-color: #8e68ad;
+  color: white;
+}
+.active>.page-link {
+  background-color: #670f9b!important;
+  border-color:#210233!important
+}
+.pdf a {
+  font-size: 1.3rem;
+  color: #670f9b!important;
+}
+.librobiblioteca {
+  
+  padding: .3rem;
+  margin: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.pagination li {
+  background-color: #81559b!important;
+}
+.areadetexto {
+  align-items: center;
+  width: 30rem!important;
+  height: 20rem!important;
+  text-align: center!important;
+  border-radius: 2rem;
+
+}
+.formulario-login-iniciarSeccion span {
+  font-size: 1.3rem;
+}
+.formulario-login-iniciarSeccion input {
+    margin: 1rem;
+    border-radius: 3rem;
+  width: 35rem;
+  height: 5rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  
+}
   
   .card h4 {
     text-align: center;
@@ -256,6 +410,7 @@
   }
   .historia-publicacion-descripcion p {
     font-size: 12px;
+    
   }
   .perfil-publicacion-contenido {
     background-color: #ececec;
@@ -263,16 +418,25 @@
     
     
   }
+  .historia-publicacion-contenido {
+    margin: 1rem;
+    background-color: #faf5f5;
+  }
+  .historia {
+    background-color: #faf5f5;
+    
+  }
   .historia-publicacion-contenido h3 {
     text-align: center;
   }
   .todo {
+    margin-bottom: 2rem;
     background-color: rgb(250, 245, 245);
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 
   }
   .historia {
-    background-color: white;
+    background-color: #faf5f5;
   }
   .perfil-publicacion-contenido p {
     font-size: 1.5rem;

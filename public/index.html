@@ -33,32 +33,32 @@
               <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
                 aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header flex-row justify-content-between w-100">
-                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Login</h5>
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel"></h5>
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                  <form @submit.prevent>
-                    <div v-show="!user">
-                      <h3>Registrarse</h3>
-                      <span>Usuario</span>
-                      <input type="email" class="box" placeholder="Ingresa tu email" id="email" name="email">
+                  <h5 class="text-center iniciar" v-show="!user"><b>Iniciar Sesión</b> </h5>
+                  <form @submit.prevent class="formulario-login">
+                    <div v-show="!user" class="formulario-login-iniciarSeccion">
+                     
+                      <span>E-mail</span>
+                      <input type="email" class="box" placeholder="" id="email" name="email">
                       <span>Contraseña</span>
-                      <input type="password" class="box" placeholder="Ingresa tu contraseña" id="password"
+                      <input type="password" class="box" placeholder="" id="password"
                         name="password">
-                      <div class="checkbox">
-                        <input type="checkbox" id="remember-me">
-                        <label for="remember-me">Recuerdame</label>
-
-                      </div>
+    
                     </div>
-                    <div>
+                    <div class="logueado">
                       <h3 v-show="user!=null">Ingresaste con exito!</h3>
                       <img id="photo.user" v-show="user!=null" :src="userPhoto" alt="photo-usuario" class="photo-login">
                       <p v-show="user!=null">Bienvenido, {{userName || userMail}}</p>
                     </div>
-                    <button type="submit" class="btn" id="quickstart-sign-in" v-on:click="toggleSignIn">Sign in</button>
-                    <button type="submit" class="btn" id="quickstart-google-sign-in" v-on:click="toggleGoogleSignIn"
-                      v-show="!user">Sign in with Google</button>
+                    <div class="botones">
+                      <button type="submit" class="btn" id="quickstart-sign-in" v-on:click="toggleSignIn">Sign in</button>
+                      <button type="submit" class="btn" id="quickstart-google-sign-in" v-on:click="toggleGoogleSignIn"
+                        v-show="!user">Iniciar Sesión con Google</button>
+                        <button type="submit" class="btn" v-show="!user">Registrarse</button>
+                    </div>
                   </form>
                   {{checkLogin}}
 
@@ -143,7 +143,7 @@
           </div>
           <div>
 
-            <img src="images/locali.png" alt="" class="icon2 m-lg-5">
+            
             <p class="text-center"><b>Nos encontramos en: </b>Av. Rivadavia 5033, C1424CEF CABA</p>
           </div>
 
@@ -164,8 +164,7 @@
       <section>
         <section class="historiasbook">
           <div class="d-flex flex-row justify-content-center mt-1">
-            <img src="images/libreriaseccion.png" alt="" class="icon2">
-            <h2 class="subtitulo align-content-lg-center">Libreria Virtual</h2>
+            <h2 class="subtitulo">Libreria Virtual</h2>
 
           </div>
           <h3 class="subtitulo">Últimas tapas agregadas</h3>
@@ -176,23 +175,29 @@
             <img src="images/libreria4.jfif" class="col" alt="">
 
           </div>
-          <p class="descripcion">Podrás crear tus propios escritos y publicarlos en la
-            plataforma.</p>
+          <p class="descripcion h4">Podrás ver libros que te pueden interesar y estos tendrán la posibilidad de que los puedas leer en formato PDF.</p>
 
 
         </section>
       </section>
-      <section class="seccion2">
-        <h2>Biblioteca Independiente</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, nobis. Inventore enim esse corporis fuga
-          laboriosam sed aspernatur nulla quae, similique, ipsum fugit qui error natus aliquam doloribus dicta eum?</p>
+      <section class="seccionabout">
+        <div>
+          <h2>Biblioteca Indie</h2>
+          <p class="h5">Nuestra página cuenta con una biblioteca para que puedan postear y comentar escritos.
+            Si tienes algún escrito que quieras compartir puedes publicarlo y otros usuarios podrán interactuar en ella.
+            Recuerda que debes Iniciar Sesion para poder publicar/comentar los escritos.
+          </p>
+        </div>
+        
+        <div>
+          <img src="images/indie.png" alt="" class="buho2">
+        </div>
+      
+      
+      
+      
       </section>
-      <section class="seccion2">
-        <h2>Indie</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto voluptas delectus qui id fuga similique,
-          quibusdam cumque beatae amet labore maiores itaque, in eveniet corrupti dolores sed nulla sapiente sint.</p>
-      </section>
-      <section class="seccion2">
+      
 
 
         <!-- <h2>Más leidos</h2>
@@ -233,8 +238,14 @@
       <div class="d-flex justify-content-evenly flex-wrap">
         <div class="libro d-flex flex-column librobiblioteca" v-for="libro in dataActual">
           <img v-if="libro.volumeInfo.readingModes.image"
-            v-bind:src="libro.volumeInfo.imageLinks.smallThumbnail || images/nobok.jpg" v-bind:alt="libro.title">
-          <p>{{libro.volumeInfo.title}}</p>
+            v-bind:src="libro.volumeInfo.imageLinks.smallThumbnail || './images/nobok.jpg'" v-bind:alt="libro.title">
+            <img v-else="libro.volumeInfo.readingModes.image"
+            src="images/nobok.jpg" v-bind:alt="libro.title">
+          <p class="h3">{{libro.volumeInfo.title}}</p>
+          <div class="pdf">
+
+            <a href="https://ar1lib.org/">Leer PDF</a>
+          </div>
         </div>
 
       </div>
@@ -260,6 +271,7 @@
       <section v-show="element == ''">
         <img src="images/bannerindie.png" class="img-fluid imgbanner" alt="...">
         <h4 class="mt-1">Bienvenido a nuestra Biblioteca Indie<span v-show="logued">, {{userName || userMail}}</span>
+          <p class="h3" v-show="!user">Recuerda que para publicar/comentar algún escrito debes loguearte!</p>
         </h4>
 
         <div>
@@ -271,7 +283,7 @@
             <img src="images/portada04.jpg" class="col" alt="">
           </div>
           <div>
-            <h3>El más votado este mes</h3>
+            <h3>El más comentado este mes</h3>
             <div class="votado">
               <div>
                 <img src="images/masvotado.jpg" alt="">
@@ -311,13 +323,13 @@
       <section v-show="element == 'comentarios'" class="overflow-auto h-100">
         <div>
 
-          <button v-on:click="element = ''" class="btn btn-danger">Volver</button>
+          <button v-on:click="element = ''" class="btn back">Volver</button>
 
 
-          <div class="sendcomentarios">
-            <input type="text" class=" areatitulo" placeholder="Title" id="titleComment">
-            <input type="text" class="w-100 flex-grow-1 my-2 areadetexto" placeholder="Comment" id="comment">
-            <button class="btn-success" id="liveToastBtn" @click="escribirComentarios()">Send Comment</button>
+          <div class="sendcomentarios d-flex align-items-center">
+            <input type="text" class=" areatitulo" placeholder="Título" id="titleComment">
+            <input type="text" class="w-100 flex-grow-1 my-2 areadetexto" placeholder="Escrito" id="comment">
+            <button class="btn-success  back" id="liveToastBtn" @click="escribirComentarios()">Publicar Escrito</button>
           </div>
 
           <div class="toast-container top-0 start-50 translate-middle-x">
@@ -338,7 +350,7 @@
 
       </section>
       <section v-show="element == 'element1'">
-        <button v-on:click="element = ''" class="btn btn-danger">Volver</button>
+        <button v-on:click="element = ''" class="btn back">Volver</button>
         <div class="comentarios">
           <h3 class="text-center">Escritos</h3>
 
@@ -362,16 +374,20 @@
                 </div>
             </div>
           </div>
-          <input v-model="comment" type="text" id="commentReal">
-          <!-- <p>{{comentario.bookId}}</p> -->
-          <button @click="escribirComentariosReal(comentario.bookId)">Comentar</button>
-          <div v-for="comentarioR in comentariosReal" v-show="comentarioR.bookId == comentario.bookId" class="card">
-            <h4 class="text-center">Comentarios</h4>
-            <div class="card-title">
+  
+          <div  v-show="user" class="realizarComentarios">
+            <input v-model="comment" type="text" id="commentReal" placeholder="Escribe aquí tu comentario">
+            <!-- <p>{{comentario.bookId}}</p> -->
+            <button @click="escribirComentariosReal(comentario.bookId)" v-show="user">Enviar Comentario</button>
+          </div>
+          <h4 class="text-center">Comentarios</h4>
+          <div v-for="comentarioR in comentariosReal" v-show="comentarioR.bookId == comentario.bookId" class="cuerpoComentario">
+            
+            <div class="comentariosRealizadosTitulo">
+              <img :src="comentarioR.photo" alt="">
               <h6>{{comentarioR.user}}</h6>
-              <img :src="comentarioR.photo" alt="" height="100">
             </div>
-            <div class="card-body">
+            <div class="ComentariosRealizadosBody">
               <p>{{comentarioR.comment}}</p>
             </div>
 

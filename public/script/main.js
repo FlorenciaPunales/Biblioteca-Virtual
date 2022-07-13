@@ -40,11 +40,11 @@ const app = Vue.createApp({
       firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
           this.user = user;
-          document.getElementById('quickstart-sign-in').textContent = 'sign out';
-          document.getElementById('quickstart-google-sign-in').textContent = 'sign out';
+          document.getElementById('quickstart-sign-in').textContent = 'Cerrar Sesión';
+          document.getElementById('quickstart-google-sign-in').textContent = 'Cerrar Sesión';
         } else {
-          document.getElementById('quickstart-sign-in').textContent = 'sign in';
-          document.getElementById('quickstart-google-sign-in').textContent = 'sign in with google';
+          document.getElementById('quickstart-sign-in').textContent = 'Iniciar Sesión';
+          document.getElementById('quickstart-google-sign-in').textContent = 'Iniciar Sesión con Google';
           this.user = {}
         }
         document.getElementById('quickstart-sign-in').disabled = false;

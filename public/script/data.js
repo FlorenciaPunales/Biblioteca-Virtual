@@ -7,7 +7,7 @@ var data = {
             "etag": "ZNEctmKl7js",
             "selfLink": "https://www.googleapis.com/books/v1/volumes/7BBttgEACAAJ",
             "volumeInfo": {
-                "title": "Harry Potter y la Piedra Filosofal / Harry Potter and the Philosopher's Stone: Casa Hufflepuff / Hufflepuff Edition",
+                "title": "Harry Potter y la Piedra Filosofal",
                 "authors": [
                     "J. K. Rowling"
                 ],
@@ -707,7 +707,7 @@ var data = {
             "etag": "+IWECh3JOXg",
             "selfLink": "https://www.googleapis.com/books/v1/volumes/2_mPzgEACAAJ",
             "volumeInfo": {
-                "title": "Harry Potter Y El Cáliz de Fuego. Edición Slytherin / Harry Potter and the Goblet of Fire. Slytherin Edition",
+                "title": "Harry Potter Y El Cáliz de Fuego. Edición Slytherin",
                 "authors": [
                     "J.k. Rowling"
                 ],
@@ -2144,12 +2144,12 @@ var data = {
             "etag": "GxizZM+UAos",
             "selfLink": "https://www.googleapis.com/books/v1/volumes/FX22zQEACAAJ",
             "volumeInfo": {
-                "title": "Harry Potter y el Prisionero de Azkaban. Edición Ravenclaw / Harry Potter and the Prisoner of Azkaban. Ravenclaw Edition",
+                "title": "Harry Potter y el Prisionero de Azkaban",
                 "authors": [
                     "J. K. Rowling"
                 ],
                 "publishedDate": "2020-11-17",
-                "description": "Siempre tendrás una casa en Hogwarts. Edición 20 aniversario de Harry Potter y el prisionero de Azkaban Deja que la clásica saga de J. K. Rowling te lleve de vuelta al Colegio Hogwarts de Magia y Hechicería. Con motivo de la celebración del 20 aniversario de la primera publicación de Harry Potter y el prisionero de Azkaban, estas irresistibles ediciones rinden homenaje al carácter noble de las cuatro casas de Hogwarts. Con nuevas ilustraciones en el interior y un diseño único para las cubiertas, obra de Levi Pinfold, ganador de la Medalla Kate Greenaway, cada uno de los libros contiene material adicional exclusivo que amplía la información sobre cada casa. Una edición única que no puedes perderte si alguna vez te has imaginado sentado bajo el Sombrero Seleccionador en el Gran Comedor de Hogwarts.",
+                "description": "Siempre tendrás una casa en Hogwarts. ",
                 "industryIdentifiers": [
                     {
                         "type": "ISBN_10",
